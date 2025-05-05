@@ -11,4 +11,9 @@
 
 ## Building the project
 - To run the application, execute `npm run dev`
-- To build the application with Docker, execute `docker build -t repo-name -f Dockerfile .`. Replace "repo-name" with a Docker Hub repository name.
+- To build the application with Docker, execute `docker build -t repo-name -f Dockerfile .` Replace "repo-name" with a Docker Hub repository name.
+
+## Using the app
+- CSV files to be converted go into the "inbound" directory.
+- JSON files that have been converted are in the "outbound" directory.
+- CSV files that have been processed are in the "processed" directory.
