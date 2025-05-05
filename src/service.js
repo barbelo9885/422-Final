@@ -22,14 +22,17 @@ console.info();
 // Create the necessary directories if necessary
 if (!fs.existsSync(watched)) {
     fs.mkdirSync(watched);
+    console.info("Watched directory created.");
 }
 
 if (!fs.existsSync(output)) {
     fs.mkdirSync(output);
+    console.info("Output directory created.");
 }
 
 if (!fs.existsSync(processed)) {
     fs.mkdirSync(processed);
+    console.info("Processed directory created.")
 }
 
 watcher.watch(watched, output, processed);
