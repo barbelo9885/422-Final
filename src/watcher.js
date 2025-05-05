@@ -31,7 +31,10 @@ module.exports = {
         watcher
             .on('add', (path) => {
                 parser.processChange(path);
+                console.log("Processing file:", path);
             })
-            .on('error', (err) => { });
+            .on('error', (err) => { 
+                console.error(err);
+            });
     }
 };

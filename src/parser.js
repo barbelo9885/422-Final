@@ -26,19 +26,28 @@ module.exports = {
                 trim: true
             }))
             .on('data', (row) => {
+                // when there is more data to be processed, add it to "rows"
                 rows.push(row);
             })
             .on('end', () => {
+                // when there is no more data to be processed, process the file
                 fs.rename(file, processedFile, (err) => {
-                    if (err) { return; }
+                    if (err) { 
+                        console.warn(err);
+                        return; 
+                    }
 
                     fs.writeFile(outputFile, JSON.stringify(rows, null, 2), (err) => {
-                        if (err) { return; }
+                        if (err) { 
+                            console.warn(err);
+                            return; }
 
                         console.info('\x1b[38;2;0;0;170m%s\x1b[0m', `Parsed ${file}`);
                     });
                 });
             })
-            .on('error', (err) => { });
+            .on('error', (err) => { 
+                console.error(err);
+            });
     }
 };
